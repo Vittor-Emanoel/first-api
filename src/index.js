@@ -6,7 +6,9 @@ const server = http.createServer((request, response) => {
   console.log(`Request method: ${request.method} | Endpoint: ${request.url}`)
 
   const route = routes.find((routeObj) => {
-    routeObj.endpoint === request.url && routeObj.method === request.method
+    return (
+      routeObj.endpoint === request.url && routeObj.method === request.method
+    )
   })
 
   if (route) {
